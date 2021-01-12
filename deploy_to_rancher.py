@@ -32,7 +32,7 @@ class DeployRancher:
                 break
 
         rget = requests.get(self.rancher_deployment_path,
-                            auth=(self.access_key, self.secret_key))
+                            auth=(self.access_key, self.secret_key),verify=False)
         response = rget.json()
         if 'status' in response and response['status'] == 404:
             config = {
